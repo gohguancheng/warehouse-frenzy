@@ -1,30 +1,31 @@
 let lastRenderTime = 0;
 secondsToRefresh = 1; // screen refresh
-const warehouse = document.getElementById("warehouse");
+const warehouseElement = document.getElementById("warehouse");
+const exitElement =  document.getElementById("exit");
 
-input = () => {
-
-}
-
-const render  = () => {
-    drawBlock(warehouse, redBlock, "red-block");
-    drawBlock(warehouse, blueBlock, "blue-block");
-}
-
-const control = () => {
+const update = () => {
     moveBlockCheck("red-block");
+}
 
+const exit = () => {
+    appendBlock(exitElement);
+}
+
+const render = (currentTime) => {
+    warehouseElement.innerHTML="";
+    drawHorizontalBlock(redBlockCoordinates, "red-block");
+    exit();
 }
 
 const main = (currentTime) => {
-    window.requestAnimationFrame(main);
+
     const secondsSinceLastRender = (currentTime - lastRenderTime)/1000;
+    window.requestAnimationFrame(main);
     if (secondsSinceLastRender < secondsToRefresh) return;
     lastRenderTime = currentTime;
-    warehouse.innerHTML="";
     render();
-    control();
-    input();
+    update(); // control comes after render because event listeners cannot be places before creating div
+
 
 }
 
