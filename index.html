@@ -6,14 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Warehouse Frenzy</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="blockCoordinates.js"></script>
+    <script src="createBlock.js"></script>
+    <script src="control.js"></script>
   </head>
   <body>
+    <div id="instructions">
+      <h3>
+        Welcome to </br> Warehouse Frenzy!
+      </h3>
+      <p>
+        Click on the last segment(s) of each block to move the blocks in the corresponding direction.
+      </p>
+      <p>
+        Move the cargo (red block) to the EXIT (green door) to win the game.
+      </p>
+    </div>
     <div id="warehouse">
       <div id="exit"></div>
     </div>
   </body>
-
-  <script src="redblock.js"></script>
-  <script src="control.js"></script>
   <script src="app.js"></script>
 </html>

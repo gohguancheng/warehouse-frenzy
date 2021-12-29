@@ -7,6 +7,19 @@ body {
     align-items: center;
     margin: 0;
     background-color: black;
+    /* column-gap: 1vmin; */
+
+}
+
+#instructions {
+    background-color: white;
+    width: 20vmin;
+    height: 100vmin;
+    display: grid;
+    order: 2;
+    border: 1vmin solid black;
+    align-content: center;
+    padding: 2.5vmin;
 }
 
 #warehouse {
@@ -16,7 +29,7 @@ body {
     display: grid;
     grid-template-rows: repeat(6, 1fr);
     grid-template-columns: repeat(6, 1fr);
-
+    order: 1;
 }
 
 #exit {
@@ -31,10 +44,34 @@ body {
 
 .red-block {
     background-color: red;
-    border: 0.25vmin solid black;
+    border-top: 0.25vmin solid black;
+    border-bottom: 0.25vmin solid black;
 }
 
-.blue-block {
+.blue-block-v {
     background-color: cyan;
-    border: 0.25vmin solid black;
+    border-left: 0.25vmin solid black;
+    border-right: 0.25vmin solid black;
+}
+
+.blue-block-h {
+    background-color: cyan;
+    border-top: 0.25vmin solid black;
+    border-bottom: 0.25vmin solid black;
+}
+
+#top {
+    border-top: 0.25vmin solid black;
+}
+
+#bottom {
+    border-bottom: 0.25vmin solid black;
+}
+
+#left {
+    border-left: 0.25vmin solid black;
+}
+
+#right {
+    border-right: 0.25vmin solid black;
 }
