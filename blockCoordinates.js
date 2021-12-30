@@ -74,6 +74,6 @@ const arrayOfBlkCoordinates = [
       x: 5,
       y: 4,
     },
-  ], //blue5
+  ] //blue5
 ];
 
