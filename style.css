@@ -11,7 +11,7 @@ body {
 }
 
 #instructions {
-    background-color: white;
+    background-color: linen;
     width: 20vmin;
     height: 95vmin;
     display: grid;
@@ -19,6 +19,16 @@ body {
     border: 1vmin solid black;
     align-content: center;
     padding: 2.5vmin;
+}
+
+#redtext {
+    color: red;
+    font-weight: bold;
+}
+
+#greentext {
+    background-color: lime;
+    font-weight: bold;
 }
 
 #moveCount {
@@ -32,7 +42,7 @@ body {
 }
 
 #warehouse {
-    background-color: #ccc;
+    background-color: lightslategrey;
     width: 100vmin;
     height: 100vmin;
     display: grid;
@@ -42,7 +52,7 @@ body {
 }
 
 #exit {
-    background-color: green;
+    background-color: lime;
     grid-row-start: 3;
     grid-row-end: 4;
     grid-column-start: 7;
@@ -58,13 +68,13 @@ body {
 }
 
 .blue-block-v {
-    background-color: cyan;
+    background-color: dodgerblue;
     border-left: 0.25vmin solid black;
     border-right: 0.25vmin solid black;
 }
 
 .blue-block-h {
-    background-color: cyan;
+    background-color: dodgerblue;
     border-top: 0.25vmin solid black;
     border-bottom: 0.25vmin solid black;
 }
