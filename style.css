@@ -13,7 +13,7 @@ body {
 #instructions {
     background-color: white;
     width: 20vmin;
-    height: 100vmin;
+    height: 95vmin;
     display: grid;
     order: 2;
     border: 1vmin solid black;
@@ -24,7 +24,7 @@ body {
 #moveCount {
     background-color: yellow;
     padding: 1vmin;
-    margin: 25vmin -2vmin -2vmin -2vmin;
+    margin: 20vmin -2vmin -2vmin -2vmin;
     border: 0.5vmin solid gray;
     font-weight: bolder;
     font-size: large;
