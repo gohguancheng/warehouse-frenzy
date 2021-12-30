@@ -7,7 +7,6 @@ body {
     align-items: center;
     margin: 0;
     background-color: black;
-    /* column-gap: 1vmin; */
 
 }
 
@@ -20,6 +19,16 @@ body {
     border: 1vmin solid black;
     align-content: center;
     padding: 2.5vmin;
+}
+
+#moveCount {
+    background-color: yellow;
+    padding: 1vmin;
+    margin: 25vmin -2vmin -2vmin -2vmin;
+    border: 0.5vmin solid gray;
+    font-weight: bolder;
+    font-size: large;
+
 }
 
 #warehouse {

@@ -50,14 +50,16 @@ const horizontalClickHandler = (event) => {
   if (evTarget.id === "left") {
     const leftCollision = leftCollisionCheck(clickedBlock);
     if (leftCollision) return; //collision detection
+    moveCount += 1;
     for (i = 0; i < arrayOfBlkCoordinates[blockNumber].length; i++) {
-      arrayOfBlkCoordinates[blockNumber][i].x -= 1; //affects global array -> shift entire array of coordinates left
+      arrayOfBlkCoordinates[blockNumber][i].x -= 1; //affects global array -> shift entire array of coordinates left by subtracting to the x of each array element
     }
   } else if (evTarget.id === "right") {
     const rightCollision = rightCollisionCheck(clickedBlock);
     if (rightCollision) return; //collision detection
+    moveCount += 1;
     for (i = 0; i < arrayOfBlkCoordinates[blockNumber].length; i++) {
-      arrayOfBlkCoordinates[blockNumber][i].x += 1; //affects global array -> shift entire array of coordinates right
+      arrayOfBlkCoordinates[blockNumber][i].x += 1; //affects global array -> shift entire array of coordinates right by adding to the x of each array element
     }
   }
   render();
@@ -87,11 +89,11 @@ const topCollisionCheck = (blockPosArray) => {
       }
     });
   });
-  const clashPosition = blockPosArray[0].y - 1; //clash is +1, i.e. bottom, of clicked block
+  const clashPosition = blockPosArray[0].y - 1; //clash is -1, i.e. above/top, of clicked block's top/head
   const topIsOccupied =
     clashPosition === 0 || // position 0 is outside the 6x6 grid
     occupied.indexOf(clashPosition) !== -1;
-  // if index of clashPosition value is not -1, it exists in checker array. this means a segment occupies clashPosition at same column of clicked block
+  // if index of clashPosition value is not -1, it exists in checker array. this means a segment currently occupies clashPosition at same column of clicked block
   return topIsOccupied;
 };
 
@@ -107,11 +109,11 @@ const bottomCollisionCheck = (blockPosArray) => {
       }
     });
   });
-  const clashPosition = blockPosArray[blockPosArray.length - 1].y + 1; //clash is +1, i.e. bottom, of clicked block
+  const clashPosition = blockPosArray[blockPosArray.length - 1].y + 1; //clash is +1, i.e. bottom, of clicked block's bottom/end
   const bottomIsOccupied =
     clashPosition === 7 || // position 7 is outside the 6x6 grid
     occupied.indexOf(clashPosition) !== -1;
-  // if index of clashPosition value is not -1, it exists in checker array. this means a segment occupies clashPosition at same column of clicked block
+  // if index of clashPosition value is not -1, it exists in checker array. this means a segment currently occupies clashPosition at same column of clicked block
   return bottomIsOccupied;
 };
 
@@ -122,17 +124,18 @@ const verticalClickHandler = (event) => {
   const clickedBlock = arrayOfBlkCoordinates[blockNumber]; //returns array of new coordinates for specific block
   if (evTarget.id === "top") {
     const topCollision = topCollisionCheck(clickedBlock);
-    console.log("top collide: ", topCollision);
     if (topCollision) return; //collision detection
+    moveCount += 1;
     for (i = 0; i < arrayOfBlkCoordinates[blockNumber].length; i++) {
-      arrayOfBlkCoordinates[blockNumber][i].y -= 1; //affects global array -> shift entire array of coordinates up
+      arrayOfBlkCoordinates[blockNumber][i].y -= 1; //affects global array -> shift entire array of coordinates up by subtracting to the y of each array element
     }
   } else if (evTarget.id === "bottom") {
     const bottomCollision = bottomCollisionCheck(clickedBlock);
     console.log("bottom collide: ", bottomCollision);
     if (bottomCollision) return; //collision detection
+    moveCount += 1;
     for (i = 0; i < arrayOfBlkCoordinates[blockNumber].length; i++) {
-      arrayOfBlkCoordinates[blockNumber][i].y += 1; //affects global array -> shift entire array of coordinates down
+      arrayOfBlkCoordinates[blockNumber][i].y += 1; //affects global array -> shift entire array of coordinates down by adding to the y of each array element
     }
   }
   render();

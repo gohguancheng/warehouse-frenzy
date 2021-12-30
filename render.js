@@ -56,3 +56,8 @@ arrOfBlueBlk.forEach((element) => {
     }
     i += 1;
 });}
+
+const moveCounter = () => {
+  const countElement = document.getElementById("moveCount");
+  countElement.innerHTML = "Moves Made: " + moveCount;
+}
