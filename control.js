@@ -17,7 +17,7 @@ const isAdjacent = (obj1, obj2, dir) => {
 //* Horizontal Movement 
 
 const leftCollisionCheck = (blockPosArray) => {
-  const otherBlocks = arrayOfBlueBlockCoordinates.filter((bArray) => bArray !== blockPosArray); //removes self from checks
+  const otherBlocks = arrayOfBlkCoordinates.filter((bArray) => bArray !== blockPosArray); //removes self from checks
   const isRedBlock = equalArraysOfObjects(blockPosArray, redBlockCoordinates);
   if (!isRedBlock) {
     otherBlocks.push(redBlockCoordinates);
@@ -28,14 +28,8 @@ const leftCollisionCheck = (blockPosArray) => {
 };
 
 const rightCollisionCheck = (blockPosArray) => {
-  // const otherBlocks = arrayOfBlueBlockCoordinates.filter((bArray) => bArray !== blockPosArray); //removes self from checks
-  // const isRedBlock = equalArraysOfObjects(blockPosArray, redBlockCoordinates);
-  // if (!isRedBlock) {
-  //   otherBlocks.push(redBlockCoordinates);
-  // }
-  // const isLeftOfBlocks = otherBlocks.some((element) => (element.x+1) === blockPosArray.x);
   const clash = []; //initialize checker array
-  arrayOfBlueBlockCoordinates.forEach((array) => {
+  arrayOfBlkCoordinates.forEach((array) => {
     array.forEach((coordinate) => {
       if (coordinate.y === blockPosArray[0].y) {
         clash.push(coordinate.x); //push in value into checker array
@@ -48,17 +42,23 @@ const rightCollisionCheck = (blockPosArray) => {
 
 const horizontalClickHandler = (event) => {
   const evTarget = event.target; // selects HTML element that is target of click
-  const leftCollision = leftCollisionCheck(redBlockCoordinates);
-  const rightCollision = rightCollisionCheck(redBlockCoordinates);
+  const coordinates = {x: evTarget.dataset.x, y: evTarget.dataset.y};
+  const blockNumber = evTarget.dataset.count;
+  const clickedBlock = arrayOfBlkCoordinates[blockNumber] //returns array oif new coordinates for specific block
+  console.log("coordinates: ", coordinates);
+  console.log("blockNumber: ", blockNumber);
+  console.log("blockCoord: ", clickedBlock);
+  // const leftCollision = leftCollisionCheck(clickedBlock);
+  const rightCollision = rightCollisionCheck(clickedBlock);
   if (evTarget.id === "left") {
-    if (leftCollision) return; //collision detection
-    for (i = 0; i < redBlockCoordinates.length; i++) {
-      redBlockCoordinates[i].x -= 1; //shift entire array of coordinates left
+    // if (leftCollision) return; //collision detection
+    for (i = 0; i < arrayOfBlkCoordinates[blockNumber].length; i++) {
+      arrayOfBlkCoordinates[blockNumber][i].x -= 1; //shift entire array of coordinates left
     }
   } else if (evTarget.id === "right") {
     if (rightCollision) return; //collision detection
-    for (i = 0; i < redBlockCoordinates.length; i++) {
-      redBlockCoordinates[i].x += 1; //shift entire array of coordinates right
+    for (i = 0; i < arrayOfBlkCoordinates[blockNumber].length; i++) {
+      arrayOfBlkCoordinates[blockNumber][i].x += 1; //shift entire array of coordinates right
     }
   }
   render();
@@ -66,7 +66,7 @@ const horizontalClickHandler = (event) => {
 
 const moveHorizontalBlockCheck = (classTag) => {
   const block = document.getElementsByClassName(classTag);
-  const arr = Array.from(block);
+  const arr = Array.from(block); // array of coordinates from block
   arr.forEach((e) => {
     e.addEventListener("click", horizontalClickHandler);
   });
