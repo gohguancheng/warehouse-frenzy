@@ -12,8 +12,8 @@ body {
 
 #instructions {
     background-color: linen;
-    width: 20vmin;
-    height: 95vmin;
+    width: 25vmin;
+    height: 100vmin;
     display: grid;
     order: 2;
     border: 1vmin solid black;

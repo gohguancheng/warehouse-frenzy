@@ -131,7 +131,6 @@ const verticalClickHandler = (event) => {
     }
   } else if (evTarget.id === "bottom") {
     const bottomCollision = bottomCollisionCheck(clickedBlock);
-    console.log("bottom collide: ", bottomCollision);
     if (bottomCollision) return; //collision detection
     moveCount += 1;
     for (i = 0; i < arrayOfBlkCoordinates[blockNumber].length; i++) {
