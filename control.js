@@ -147,3 +147,32 @@ const addVerticalClickHandler = (classTag) => {
     e.addEventListener("click", verticalClickHandler);
   });
 };
+
+//////////////////////////////////////////////
+//*Level Buttons
+//////////////////////////////////////////////
+
+const buttonListener = (event) => {
+  const eventTarget = event.target;
+  const selectedLevel = eventTarget.id;
+  switch (selectedLevel) {
+    case "L1" : 
+    level = 1;
+    break;
+    case "L2": 
+    level = 2;
+    break;
+    case "L3": 
+    level = 3;
+    break;
+  };
+  main();
+};
+
+const addLevelButtons = () => {
+  const buttonNodeList = document.querySelectorAll("button");
+  const arr = Array.from(buttonNodeList); // make array of all DOM elements with classTag
+  arr.forEach((e) => {
+    e.addEventListener("click", buttonListener);
+  });
+};

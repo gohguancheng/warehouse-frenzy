@@ -59,5 +59,24 @@ arrOfBlueBlk.forEach((element) => {
 
 const drawMoveCounter = () => {
   const countElement = document.getElementById("moveCount");
-  countElement.innerHTML = "Moves Made: " + moveCount;
+  countElement.innerHTML = "Move-Clicks Made: " + moveCount;
+}
+
+const drawInstructions = () => {
+  const title = document.getElementById("title");
+  title.innerHTML = `Welcome to </br> Warehouse Frenzy! </br></br> LEVEL ${level}`; //changes title text
+  const final = document.getElementById("line1");
+  final.innerHTML = `Click on the last segment(s) of each block to move the blocks in the corresponding direction.`; //changes text to reflect number of moves and instructs on how to restart
+  const extraLine = document.getElementById("line2");
+  extraLine.innerHTML = `Move the <span id="redtext">cargo (red block)</span> to the <span id="greentext">EXIT (green door)</span> to win the game.
+  </br></br> 
+  Note that a move is counted when a block moves. Win with as few move-clicks as possible! </br> Minimum No. of Move-Clicks: ${minMoves[level-1]}`; //removes additional line for instruction
+}
+
+const drawButtons = () =>  {
+  for (i=1; i<4; i++) {
+    const button = document.getElementById(`L${i}`);
+    button.innerHTML = `Level ${i}`;
+  }
+
 }
