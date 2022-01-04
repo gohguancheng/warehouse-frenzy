@@ -62,10 +62,10 @@ const horizontalClickHandler = (event) => {
       arrayOfBlkCoordinates[blockNumber][i].x += 1; //affects global array -> shift entire array of coordinates right by adding to the x of each array element
     }
   }
-  render();
+  window.requestAnimationFrame(main);
 };
 
-const addClickHandlerHorizontalBlock = (classTag) => {
+const addHorizontalClickHandler = (classTag) => {
   const block = document.getElementsByClassName(classTag);
   const arr = Array.from(block); // make array of all DOM elements with classTag
   arr.forEach((e) => {
@@ -137,10 +137,10 @@ const verticalClickHandler = (event) => {
       arrayOfBlkCoordinates[blockNumber][i].y += 1; //affects global array -> shift entire array of coordinates down by adding to the y of each array element
     }
   }
-  render();
+  window.requestAnimationFrame(main);
 };
 
-const addClickHandlerVerticalBlock = (classTag) => {
+const addVerticalClickHandler = (classTag) => {
   const block = document.getElementsByClassName(classTag);
   const arr = Array.from(block); // make array of all DOM elements with classTag
   arr.forEach((e) => {
