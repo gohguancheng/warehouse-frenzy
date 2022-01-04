@@ -12,7 +12,7 @@ body {
 
 #instructions {
     background-color: linen;
-    width: 25vmin;
+    width: 30vmin;
     height: 100vmin;
     display: grid;
     order: 2;
@@ -20,6 +20,8 @@ body {
     align-content: center;
     padding: 2.5vmin;
     font-family: "Garamond";
+    font-size: 2vmin;
+    
 }
 
 #redtext {
@@ -38,12 +40,19 @@ body {
     margin: 0vmin -2vmin 2vmin -2vmin;
     border: 0.5vmin solid gray;
     font-weight: bolder;
-    font-size: large;
+    font-size: 2.5vmin;
 
 }
 
 button {
     margin: 0.5vmin;
+    font-size: 2vmin;
+    border-radius:0.5em;
+    text-align:center;
+    font-weight:400;
+    color: white;
+    background-color:#3369ff;
+    box-shadow:inset 0 -0.1em 0 -0.1em lightgrey;
 }
 
 #warehouse {
@@ -99,4 +108,5 @@ button {
 #right {
     border-right: 0.25vmin solid black;
 }
+
 
