@@ -156,22 +156,29 @@ const buttonListener = (event) => {
   const eventTarget = event.target;
   const selectedLevel = eventTarget.id;
   switch (selectedLevel) {
-    case "L1" : 
-{    level = 1;
-    moveCount = 0;
-    playerWins = false;
-    break;}
-    case "L2": 
-{    level = 2;
-    moveCount = 0;
-    playerWins = false;
-    break;}
-    case "L3": 
-{    level = 3;
-    moveCount = 0;
-    playerWins = false;
-    break;}
-  };
+    case "refresh": {
+      window.location = "/";
+      break;
+    }
+    case "L1": {
+      level = 1;
+      moveCount = 0;
+      playerWins = false;
+      break;
+    }
+    case "L2": {
+      level = 2;
+      moveCount = 0;
+      playerWins = false;
+      break;
+    }
+    case "L3": {
+      level = 3;
+      moveCount = 0;
+      playerWins = false;
+      break;
+    }
+  }
   main();
 };
 
