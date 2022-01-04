@@ -65,7 +65,7 @@ const horizontalClickHandler = (event) => {
   render();
 };
 
-const moveHorizontalBlockCheck = (classTag) => {
+const addClickHandlerHorizontalBlock = (classTag) => {
   const block = document.getElementsByClassName(classTag);
   const arr = Array.from(block); // make array of all DOM elements with classTag
   arr.forEach((e) => {
@@ -140,7 +140,7 @@ const verticalClickHandler = (event) => {
   render();
 };
 
-const moveVerticalBlockCheck = (classTag) => {
+const addClickHandlerVerticalBlock = (classTag) => {
   const block = document.getElementsByClassName(classTag);
   const arr = Array.from(block); // make array of all DOM elements with classTag
   arr.forEach((e) => {
