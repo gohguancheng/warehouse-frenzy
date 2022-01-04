@@ -70,7 +70,7 @@ const drawInstructions = () => {
   const extraLine = document.getElementById("line2");
   extraLine.innerHTML = `Move the <span id="redtext">cargo (red block)</span> to the <span id="greentext">EXIT (green door)</span> to win the game.
   </br></br> 
-  Note that a move is counted when a block moves. Win with as few move-clicks as possible! </br> Minimum No. of Move-Clicks: ${minMoves[level-1]}`; //removes additional line for instruction
+  Note that a move is counted when a block moves. Win with as few move-clicks as possible! </br></br> Current HighScore</br> Minimum No. of Move-Clicks: ${minMoves[level-1]}`; //removes additional line for instruction
 }
 
 const drawButtons = () =>  {
