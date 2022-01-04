@@ -22,8 +22,8 @@ const render = () => {
   drawHorizontalBlock(arrayOfBlkCoordinates[0], "red-block", "0"); //render red block
   drawExit();
   drawInstructions();
-  drawButtons();
   drawMoveCounter();
+  drawButtons();
 };
 
 const update = () => {

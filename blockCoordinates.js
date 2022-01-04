@@ -1,4 +1,4 @@
-const minMoves = [13, 42, 42];
+const minMoves = [13, 37, 42];
 
 const level1Blocks = [
   [
