@@ -4,7 +4,7 @@ let playerWins = false;
 let moveCount = 0;
 let completedCount = 0;
 let level = 1;
-
+let arrayOfBlkCoordinates;
 
 const drawExit = () => {
   appendToWarehouse(exitElement);
@@ -12,7 +12,7 @@ const drawExit = () => {
 
 const checkWinCondition = () => {
   return (
-    arrayOfBlkCoordinates[0][1].x === 6 && arrayOfBlkCoordinates[0][1].y === 3
+    currentGame[0][1].x === 6 && currentGame[0][1].y === 3
   );
 };
 
@@ -24,7 +24,6 @@ const render = () => {
   drawInstructions();
   drawButtons();
   drawMoveCounter();
-  
 };
 
 const update = () => {
@@ -50,51 +49,60 @@ const winMessages = () => {
   }
 };
 
+const generateConfirm = () => {
+  if (
+    confirm(
+      //creates dialogue box that restarts game when ok is clicked.
+      `With just ${moveCount} moves! Winner Winner! Chicken Dinner! Press ok to move on to next level.`
+    )
+  ) {
+    switch (level) {
+      case 1:
+        level = 2;
+        moveCount = 0;
+        playerWins = false;
+        console.log("playerWins: ", playerWins);
+        main();
+        break;
+      case 2:
+        level = 3;
+        moveCount = 0;
+        playerWins = false;
+        console.log("playerWins: ", playerWins);
+        main();
+        break;
+      case 3:
+        window.location = "/"; //refreshes page
+        break;
+    }
+  }
+};
+
 const main = (currentTime) => {
   switch (level) {
-    case 1: 
-    arrayOfBlkCoordinates = level1Blocks;
-    break;
-    case 2: 
-    arrayOfBlkCoordinates = level2Blocks;
-    break;
-    case 3: 
-    arrayOfBlkCoordinates = level3Blocks;
-    break;
+    case 1:
+      currentGame = level1Blocks.map((e) => e);
+      arrayOfBlkCoordinates = currentGame;
+      break;
+    case 2:
+      currentGame = level2Blocks.map((e) => e);
+      arrayOfBlkCoordinates = currentGame;
+      break;
+    case 3:
+      currentGame = level3Blocks.map((e) => e);
+      arrayOfBlkCoordinates = currentGame;
+      break;
   }
 
   render(); // draws all elements -> blocks, exit and moves counter
   update(); // 'update' comes after 'render' because event listeners cannot be placed before creating event targets
-  
+
   playerWins = checkWinCondition(); // returns boolean
+
   if (playerWins) {
     //checks if playerWins is true, before executing the below
     winMessages();
-    if (
-      confirm(
-        //creates dialogue box that restarts game when ok is clicked.
-        `With just ${moveCount} moves! Winner Winner! Chicken Dinner! Press ok to move on to next level.`
-      )
-    ) {
-      switch (level) {
-        case 1: 
-        level = 2;
-        moveCount = 0;
-        playerWins = false;
-        main();
-        break;
-        case 2: 
-        level = 3;
-        moveCount = 0;
-        playerWins = false;
-        main();
-        break;
-        case 3: 
-        window.location = "/"; //refreshes page
-        break;
-      }
-      
-    }
+    setTimeout(generateConfirm, 500);
   }
 };
 
