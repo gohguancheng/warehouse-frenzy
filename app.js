@@ -58,22 +58,20 @@ const generateConfirm = () => {
   ) {
     switch (level) {
       case 1:
-        level = 2;
+{        level = 2;
         moveCount = 0;
         playerWins = false;
-        console.log("playerWins: ", playerWins);
         main();
-        break;
+        break;}
       case 2:
-        level = 3;
+{        level = 3;
         moveCount = 0;
         playerWins = false;
-        console.log("playerWins: ", playerWins);
         main();
-        break;
+        break;}
       case 3:
-        window.location = "/"; //refreshes page
-        break;
+{        window.location = "/"; //refreshes page
+        break;}
     }
   }
 };
@@ -81,17 +79,17 @@ const generateConfirm = () => {
 const main = (currentTime) => {
   switch (level) {
     case 1:
-      currentGame = level1Blocks.map((e) => e);
+{      currentGame = level1Blocks.map((e) => e);
       arrayOfBlkCoordinates = currentGame;
-      break;
+      break;}
     case 2:
-      currentGame = level2Blocks.map((e) => e);
+{      currentGame = level2Blocks.map((e) => e);
       arrayOfBlkCoordinates = currentGame;
-      break;
+      break;}
     case 3:
-      currentGame = level3Blocks.map((e) => e);
+{      currentGame = level3Blocks.map((e) => e);
       arrayOfBlkCoordinates = currentGame;
-      break;
+      break;}
   }
 
   render(); // draws all elements -> blocks, exit and moves counter
