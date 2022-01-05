@@ -2,6 +2,7 @@
 //* Horizontal Movement
 //////////////////////////////////////////////
 
+//check left of element for collision with boundary or other blocks
 const leftCollisionCheck = (blockPosArray) => {
   const occupied = []; //initialize checker array
   arrayOfBlkCoordinates.forEach((array) => {
@@ -22,6 +23,7 @@ const leftCollisionCheck = (blockPosArray) => {
   return leftIsOccupied;
 };
 
+//check right of element for collision with boundary or other blocks
 const rightCollisionCheck = (blockPosArray) => {
   const occupied = []; //initialize checker array
   arrayOfBlkCoordinates.forEach((array) => {
@@ -42,6 +44,7 @@ const rightCollisionCheck = (blockPosArray) => {
   return rightIsOccupied;
 };
 
+//event handler that moves entire block along x-axis by updating block coordinates array then calls main function again to render and update
 const horizontalClickHandler = (event) => {
   const evTarget = event.target; // selects HTML element that is target of click
   const coordinates = { x: evTarget.dataset.x, y: evTarget.dataset.y }; //get  number saved in x and y data
@@ -51,7 +54,7 @@ const horizontalClickHandler = (event) => {
     const leftCollision = leftCollisionCheck(clickedBlock);
     if (leftCollision) return; //collision detection
     moveCount += 1;
-    currentMoves[level-1] = moveCount;
+    currentMoves[level-1] = moveCount; //updates currentMoves in case player changes level
     for (i = 0; i < arrayOfBlkCoordinates[blockNumber].length; i++) {
       arrayOfBlkCoordinates[blockNumber][i].x -= 1; //affects global array -> shift entire array of coordinates left by subtracting to the x of each array element
     }
@@ -59,7 +62,7 @@ const horizontalClickHandler = (event) => {
     const rightCollision = rightCollisionCheck(clickedBlock);
     if (rightCollision) return; //collision detection
     moveCount += 1;
-    currentMoves[level-1] = moveCount;
+    currentMoves[level-1] = moveCount; //updates currentMoves in case player changes level
     for (i = 0; i < arrayOfBlkCoordinates[blockNumber].length; i++) {
       arrayOfBlkCoordinates[blockNumber][i].x += 1; //affects global array -> shift entire array of coordinates right by adding to the x of each array element
     }
@@ -67,6 +70,7 @@ const horizontalClickHandler = (event) => {
   window.requestAnimationFrame(main);
 };
 
+//adds event handlers to horizontal blocks
 const addHorizontalClickHandler = (classTag) => {
   const block = document.getElementsByClassName(classTag);
   const arr = Array.from(block); // make array of all DOM elements with classTag
@@ -79,6 +83,7 @@ const addHorizontalClickHandler = (classTag) => {
 //*Vertical Movements
 //////////////////////////////////////////////
 
+//check top of element for collision with boundary or other blocks
 const topCollisionCheck = (blockPosArray) => {
   const occupied = []; //initialize checker array
   arrayOfBlkCoordinates.forEach((array) => {
@@ -99,6 +104,7 @@ const topCollisionCheck = (blockPosArray) => {
   return topIsOccupied;
 };
 
+//check bottom of element for collision with boundary or other blocks
 const bottomCollisionCheck = (blockPosArray) => {
   const occupied = []; //initialize checker array
   arrayOfBlkCoordinates.forEach((array) => {
@@ -119,6 +125,7 @@ const bottomCollisionCheck = (blockPosArray) => {
   return bottomIsOccupied;
 };
 
+//event handler that moves entire block along y-axis by updating block coordinates array then calls main function again to render and update
 const verticalClickHandler = (event) => {
   const evTarget = event.target; //selects HTML element that is target of click
   const coordinates = { x: evTarget.dataset.x, y: evTarget.dataset.y };
@@ -128,7 +135,7 @@ const verticalClickHandler = (event) => {
     const topCollision = topCollisionCheck(clickedBlock);
     if (topCollision) return; //collision detection
     moveCount += 1;
-    currentMoves[level-1] = moveCount;
+    currentMoves[level-1] = moveCount; //updates currentMoves in case player changes level
     for (i = 0; i < arrayOfBlkCoordinates[blockNumber].length; i++) {
       arrayOfBlkCoordinates[blockNumber][i].y -= 1; //affects global array -> shift entire array of coordinates up by subtracting to the y of each array element
     }
@@ -136,7 +143,7 @@ const verticalClickHandler = (event) => {
     const bottomCollision = bottomCollisionCheck(clickedBlock);
     if (bottomCollision) return; //collision detection
     moveCount += 1;
-    currentMoves[level-1] = moveCount;
+    currentMoves[level-1] = moveCount; //updates currentMoves in case player changes level
     for (i = 0; i < arrayOfBlkCoordinates[blockNumber].length; i++) {
       arrayOfBlkCoordinates[blockNumber][i].y += 1; //affects global array -> shift entire array of coordinates down by adding to the y of each array element
     }
@@ -144,6 +151,7 @@ const verticalClickHandler = (event) => {
   window.requestAnimationFrame(main);
 };
 
+//adds event handlers to vertical blocks
 const addVerticalClickHandler = (classTag) => {
   const block = document.getElementsByClassName(classTag);
   const arr = Array.from(block); // make array of all DOM elements with classTag
@@ -156,6 +164,7 @@ const addVerticalClickHandler = (classTag) => {
 //*Level Buttons
 //////////////////////////////////////////////
 
+//event handler that updates game level or refreshes page based on button id then calls main function again to render and update
 const buttonListener = (event) => {
   const eventTarget = event.target;
   const selectedLevel = eventTarget.id;
@@ -178,12 +187,13 @@ const buttonListener = (event) => {
     }
   }
   moveCount = currentMoves[level-1];
-  main();
+  window.requestAnimationFrame(main);
 };
 
-const addLevelButtons = () => {
+//add event handlers for buttons
+const addButtonsEventHandler = () => {
   const buttonNodeList = document.querySelectorAll("button");
-  const arr = Array.from(buttonNodeList); // make array of all DOM elements with classTag
+  const arr = Array.from(buttonNodeList); // make array of all DOM elements that are buttons
   arr.forEach((e) => {
     e.addEventListener("click", buttonListener);
   });

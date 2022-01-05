@@ -1,5 +1,11 @@
+///////////////////////////////////////////////////
+//* Contains functions to render all DOM Elements
+///////////////////////////////////////////////////
+
+//appends element to the game board (warehouse)
 const appendToWarehouse = (element) => warehouseElement.appendChild(element);
 
+//draw a block segment, 1 cell on the grid.
 const drawSegment = (segmentObj, className, countTag) => {
   const BlockElement = document.createElement("div"); //create div in HTMl
   BlockElement.style.gridRowStart = segmentObj.y; //sets position, puts a segment on the defined row
@@ -11,8 +17,7 @@ const drawSegment = (segmentObj, className, countTag) => {
   return BlockElement;
 };
 
-//* horizontal
-
+//draw a full horizontal block and assign id to the end segments of the block
 const drawHorizontalBlock = (coordinatesArray, className, countTag) => {
   //takes in the warehouse argument as the space to put in the creation based on redBlockPos.
   coordinatesArray.forEach((segmentObj, index, coordinatesArr) => {
@@ -28,8 +33,7 @@ const drawHorizontalBlock = (coordinatesArray, className, countTag) => {
   });
 };
 
-//* vertical
-
+//draw a full vertical block and assign id to the end segments of the block
 const drawVerticalBlock = (coordinatesArray, className, countTag) => {
   //takes in the warehouse argument as the space to put in the creation based on redBlockPos.
   coordinatesArray.forEach((segmentObj, index, coordinatesArr) => {
@@ -44,10 +48,10 @@ const drawVerticalBlock = (coordinatesArray, className, countTag) => {
   });
 };
 
-
+//draw all blue blocks in the block array, regardless of how many blocks there are 
 const drawBlue = () => {
   let i = 1;
-const arrOfBlueBlk = arrayOfBlkCoordinates.slice(1, arrayOfBlkCoordinates.length);
+const arrOfBlueBlk = arrayOfBlkCoordinates.slice(1, arrayOfBlkCoordinates.length); // 0th item must be red block
 arrOfBlueBlk.forEach((element) => {
     if (element[0].x == element[1].x) {
         drawVerticalBlock(element, "blue-block-v", i);
@@ -57,22 +61,25 @@ arrOfBlueBlk.forEach((element) => {
     i += 1;
 });}
 
+//draws the move counter on the instruction panel
 const drawMoveCounter = () => {
   const countElement = document.getElementById("moveCount");
   countElement.innerHTML = `Block-Moves Count:</br>${currentMoves[level-1]} / ${minMoves[level-1]}`;
 }
 
-const drawInstructions = () => {
+//draws default set of instruction text on instruction panel
+const drawDefaultInstructions = () => {
   const title = document.getElementById("title");
   title.innerHTML = `Welcome to </br> Warehouse Frenzy! </br></br> LEVEL ${level}`; //changes title text
   const final = document.getElementById("line1");
   final.innerHTML = `Click on the end segment(s) of each block to move the block in the corresponding direction.`; //changes text to reflect number of moves and instructs on how to restart
   const extraLine = document.getElementById("line2");
-  extraLine.innerHTML = `Move the <span id="redtext">cargo (red) block</span> to the <span id="greentext">EXIT (green) door</span> to win the game.
+  extraLine.innerHTML = `Move the <span id="redtext">cargo (red) block</span> to the <span id="greentext">EXIT (green) door</span> to complete the level.
   </br></br> 
   A block-move is counted when a block moves. Win with as few block-moves as possible! </br></br>Best Score (Level ${level})</br> Min. Block-Moves: ${minMoves[level-1]}`; //removes additional line for instruction
 }
 
+//draws buttons use to go to various levels and reset/refresh game
 const drawButtons = () =>  {
   const button = document.getElementById(`refresh`);
   button.innerHTML = `Reset All</br>& Restart L1`;

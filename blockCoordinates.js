@@ -1,6 +1,8 @@
-const minMoves = [13, 37, 31];
-const currentMoves = [0, 0, 0];
+const minMoves = [13, 37, 31]; // hard coded high scores based on feedback
+const currentMoves = [0, 0, 0]; // counter to store numbers of moves used in each level
 
+//below contains arrays of arrays of coordinates(objects), 
+//first (0th) item in each level's arrays represent position of red block 
 const level1Blocks = [
   [
     //red0
