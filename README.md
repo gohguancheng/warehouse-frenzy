@@ -1,3 +1,3 @@
 # warehouse-frenzy
-game created for 1st GA project
-Try it Out: https://warehouse-frenzy.vercel.app/
+Game coded in Vanilla JS for 1st GA project 
+Try it Out here: https://warehouse-frenzy.vercel.app/
