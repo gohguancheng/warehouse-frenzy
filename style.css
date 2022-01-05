@@ -33,7 +33,7 @@ body {
     background-color: linen;
     text-align: center;
     font-size: 2.4vmin;
-    margin: -4vmin 4vmin 1vmin 4vmin;
+    margin: -2vmin 4vmin 1vmin 4vmin;
     border-radius: 1vmin;
     animation: zoom-in .3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
     box-shadow: 0.5vmin 0.5vmin 1vmin gray;
