@@ -18,10 +18,16 @@ body {
     order: 2;
     border: 1vmin solid black;
     align-content: center;
-    padding: 2.5vmin;
+    padding: 0vmin 2.5vmin;
     font-family: "Garamond";
     font-size: 2vmin;
+    text-align: auto;
     
+}
+
+#title {
+    text-align: center;
+    font-size: 2.5vmin;
 }
 
 #redtext {
@@ -37,8 +43,9 @@ body {
 #moveCount {
     background-color: yellow;
     padding: 1vmin;
-    margin: 0vmin -2vmin 2vmin -2vmin;
+    margin: 0vmin 0vmin 2vmin 0vmin;
     border: 0.5vmin solid gray;
+    text-align: center;
     font-weight: bolder;
     font-size: 2.5vmin;
 

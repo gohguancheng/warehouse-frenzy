@@ -75,7 +75,7 @@ const drawInstructions = () => {
 
 const drawButtons = () =>  {
   const button = document.getElementById(`refresh`);
-  button.innerHTML = `Refresh All Boards`;
+  button.innerHTML = `Reset Boards & Restart L1`;
   for (i=1; i<4; i++) {
     const button = document.getElementById(`L${i}`);
     button.innerHTML = `Level ${i}`;
