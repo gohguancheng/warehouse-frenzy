@@ -73,7 +73,7 @@ p {
 button {
     height: 5vmin;
     width: 25vmin;
-    margin: 1vmin 2.5vmin;
+    margin: 0vmin 2.5vmin 1vmin 2.5vmin;
     font-size: 1.8vmin;
     border-radius:0.5vmin;
     text-align:center;
