@@ -12,7 +12,7 @@ body {
 
 #instructions {
     background-color: darkslategray;
-    width: 30vmin;
+    width: 25vmin;
     height: 100vmin;
     display: grid;
     order: 2;
@@ -23,16 +23,17 @@ body {
     justify-items: stretch;
     padding: -0.5vmin 1vmin;
     font-family: "Garamond";
-    font-size: 2vmin;
+    font-size: 1.75vmin;
     text-align: auto;
     
 }
 
 #title {
+    justify-self: stretch;
     background-color: linen;
     text-align: center;
-    font-size: 2.5vmin;
-    margin: 2vmin 1vmin 0vmin 1vmin;
+    font-size: 2.4vmin;
+    margin: -4vmin 4vmin 1vmin 4vmin;
     border-radius: 1vmin;
     animation: zoom-in .3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
     box-shadow: 0.5vmin 0.5vmin 1vmin gray;
@@ -42,10 +43,10 @@ body {
 p {
     background-color: linen;
     border-radius: 1vmin;
-    animation: zoom-in .3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
     box-shadow: 0.5vmin 0.5vmin 1vmin gray;
     padding: 1vmin;
-    margin: 2.5vmin 1vmin 0vmin 1vmin;
+    margin: 1vmin 4vmin 0vmin 4vmin;
+    justify-self: stretch;
 }
 
 #redtext {
@@ -61,19 +62,19 @@ p {
 #moveCount {
     background-color: lightyellow;
     padding: 1vmin;
-    margin: 2.5vmin 1vmin 5vmin 1vmin;
+    margin: 4vmin 4vmin 6vmin 4vmin;
     border: 0.1vmin solid gray;
     text-align: center;
     vertical-align: middle;
     font-weight: bolder;
-    font-size: 2.5vmin;
+    font-size: 2.25vmin;
     justify-self: stretch;
 }
 
 button {
-    height: 5vmin;
-    width: 25vmin;
-    margin: 0vmin 2.5vmin 1vmin 2.5vmin;
+    height: auto;
+    width: 20vmin;
+    margin: 0vmin 5vmin 1vmin 5vmin;
     font-size: 1.8vmin;
     border-radius:0.5vmin;
     text-align:center;
@@ -81,6 +82,7 @@ button {
     color: white;
     background-color:#3369ff;
     box-shadow:inset 0 --1vmin 0 -1vmin lightgrey;
+    font-family: "Garamond";
 }
 
 #warehouse {
@@ -100,7 +102,7 @@ button {
     grid-row-end: 7;
     grid-column-start: 7;
     grid-column-end: 8;
-    width: 0.75vmin;
+    width: 0.5vmin;
     justify-self: end;
 }
 
