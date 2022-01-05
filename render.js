@@ -59,26 +59,26 @@ arrOfBlueBlk.forEach((element) => {
 
 const drawMoveCounter = () => {
   const countElement = document.getElementById("moveCount");
-  countElement.innerHTML = "Move-Clicks Made: " + moveCount;
+  countElement.innerHTML = `Block-Moves Count:</br>${currentMoves[level-1]} / ${minMoves[level-1]}`;
 }
 
 const drawInstructions = () => {
   const title = document.getElementById("title");
   title.innerHTML = `Welcome to </br> Warehouse Frenzy! </br></br> LEVEL ${level}`; //changes title text
   const final = document.getElementById("line1");
-  final.innerHTML = `Click on the last segment(s) of each block to move the blocks in the corresponding direction.`; //changes text to reflect number of moves and instructs on how to restart
+  final.innerHTML = `Click on the end segment(s) of each block to move the block in the corresponding direction.`; //changes text to reflect number of moves and instructs on how to restart
   const extraLine = document.getElementById("line2");
-  extraLine.innerHTML = `Move the <span id="redtext">cargo (red block)</span> to the <span id="greentext">EXIT (green door)</span> to win the game.
+  extraLine.innerHTML = `Move the <span id="redtext">cargo (red) block</span> to the <span id="greentext">EXIT (green) door</span> to win the game.
   </br></br> 
-  Note that a move is counted when a block moves. Win with as few move-clicks as possible! </br></br> Current HighScore</br> Minimum No. of Move-Clicks: ${minMoves[level-1]}`; //removes additional line for instruction
+  A block-move is counted when a block moves. Win with as few block-moves as possible! </br></br>Best Score (Level ${level})</br> Min. Block-Moves: ${minMoves[level-1]}`; //removes additional line for instruction
 }
 
 const drawButtons = () =>  {
   const button = document.getElementById(`refresh`);
-  button.innerHTML = `Reset Boards & Restart L1`;
+  button.innerHTML = `Reset Blocks & Restart L1`;
   for (i=1; i<4; i++) {
     const button = document.getElementById(`L${i}`);
-    button.innerHTML = `Level ${i}`;
+    button.innerHTML = `Go to Level ${i}`;
   }
 
 }

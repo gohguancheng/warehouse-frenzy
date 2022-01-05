@@ -51,6 +51,7 @@ const horizontalClickHandler = (event) => {
     const leftCollision = leftCollisionCheck(clickedBlock);
     if (leftCollision) return; //collision detection
     moveCount += 1;
+    currentMoves[level-1] = moveCount;
     for (i = 0; i < arrayOfBlkCoordinates[blockNumber].length; i++) {
       arrayOfBlkCoordinates[blockNumber][i].x -= 1; //affects global array -> shift entire array of coordinates left by subtracting to the x of each array element
     }
@@ -58,6 +59,7 @@ const horizontalClickHandler = (event) => {
     const rightCollision = rightCollisionCheck(clickedBlock);
     if (rightCollision) return; //collision detection
     moveCount += 1;
+    currentMoves[level-1] = moveCount;
     for (i = 0; i < arrayOfBlkCoordinates[blockNumber].length; i++) {
       arrayOfBlkCoordinates[blockNumber][i].x += 1; //affects global array -> shift entire array of coordinates right by adding to the x of each array element
     }
@@ -126,6 +128,7 @@ const verticalClickHandler = (event) => {
     const topCollision = topCollisionCheck(clickedBlock);
     if (topCollision) return; //collision detection
     moveCount += 1;
+    currentMoves[level-1] = moveCount;
     for (i = 0; i < arrayOfBlkCoordinates[blockNumber].length; i++) {
       arrayOfBlkCoordinates[blockNumber][i].y -= 1; //affects global array -> shift entire array of coordinates up by subtracting to the y of each array element
     }
@@ -133,6 +136,7 @@ const verticalClickHandler = (event) => {
     const bottomCollision = bottomCollisionCheck(clickedBlock);
     if (bottomCollision) return; //collision detection
     moveCount += 1;
+    currentMoves[level-1] = moveCount;
     for (i = 0; i < arrayOfBlkCoordinates[blockNumber].length; i++) {
       arrayOfBlkCoordinates[blockNumber][i].y += 1; //affects global array -> shift entire array of coordinates down by adding to the y of each array element
     }
@@ -162,23 +166,18 @@ const buttonListener = (event) => {
     }
     case "L1": {
       level = 1;
-      moveCount = 0;
-      playerWins = false;
       break;
     }
     case "L2": {
       level = 2;
-      moveCount = 0;
-      playerWins = false;
       break;
     }
     case "L3": {
       level = 3;
-      moveCount = 0;
-      playerWins = false;
       break;
     }
   }
+  moveCount = currentMoves[level-1];
   main();
 };
 

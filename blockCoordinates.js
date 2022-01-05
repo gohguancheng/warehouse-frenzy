@@ -1,4 +1,5 @@
 const minMoves = [13, 37, 31];
+const currentMoves = [0, 0, 0];
 
 const level1Blocks = [
   [
