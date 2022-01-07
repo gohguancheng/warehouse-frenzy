@@ -40,7 +40,7 @@ body {
     padding: 1vmin;
 }
 
-p {
+p, #moveCount {
     background-color: linen;
     border-radius: 1vmin;
     box-shadow: 0.5vmin 0.5vmin 1vmin gray;
@@ -96,58 +96,40 @@ button {
     order: 1;
 }
 
-#right-wall {
+.wall {
     background-color: rgb(24, 24, 24);
-    grid-row-start: 1;
-    grid-row-end: 7;
-    grid-column-start: 7;
-    grid-column-end: 8;
     width: 0.5vmin;
     justify-self: end;
 }
 
-#exit {
+.exit {
     background-color: lime;
-    grid-row-start: 3;
-    grid-row-end: 4;
-    grid-column-start: 7;
-    grid-column-end: 8;
     width: 0.75vmin;
     justify-self: end;
 }
 
 .red-block {
     background-color: red;
-    border-top: 0.25vmin solid DarkSlateGray;
-    border-bottom: 0.25vmin solid DarkSlateGray;
 }
 
-.blue-block-v {
+.blue-block {
     background-color: dodgerblue;
-    border-left: 0.25vmin solid DarkSlateGray;
-    border-right: 0.25vmin solid DarkSlateGray;
 }
 
-.blue-block-h {
-    background-color: dodgerblue;
-    border-top: 0.25vmin solid DarkSlateGray;
-    border-bottom: 0.25vmin solid DarkSlateGray;
-}
 
-#top {
+#T, #R, #L, #H {
     border-top: 0.25vmin solid DarkSlateGray;
 }
 
-#bottom {
+#R, #B, #L, #H {
     border-bottom: 0.25vmin solid DarkSlateGray;
 }
 
-#left {
+#T, #B, #L, #V {
     border-left: 0.25vmin solid DarkSlateGray;
 }
 
-#right {
+#T, #R, #B, #V {
     border-right: 0.25vmin solid DarkSlateGray;
 }
-
 
